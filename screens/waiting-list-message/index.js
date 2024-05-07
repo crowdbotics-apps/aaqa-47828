@@ -1,10 +1,8 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const WaitingListMessage = (params) => {
-  return (
-
-      <View style={styles.container}>
+const WaitingListMessage = params => {
+  return <View style={styles.container}>
         <View style={styles.header}>
           <Text>Notification</Text>
         </View>
@@ -32,8 +30,7 @@ const WaitingListMessage = (params) => {
           </View>
 
         </View>
-      </View>
-  );
+      </View>;
 };
 
 const styles = StyleSheet.create({
@@ -113,7 +110,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: "20%"
   }
-
 });
-
 export default WaitingListMessage;

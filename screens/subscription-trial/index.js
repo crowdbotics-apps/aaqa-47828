@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  ScrollView,
-  Pressable,
-  Image
-} from "react-native";
+import { Text, View, StyleSheet, TextInput, ScrollView, Pressable, Image } from "react-native";
 
 const SubscriptionTrial = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <ScrollView>
         <Text style={styles.heading}>Free tiral period</Text>
         <View style={styles.daysContainer}>
@@ -30,24 +21,14 @@ const SubscriptionTrial = () => {
         </View>
         <Text style={styles.periodHeading}>Choose your period</Text>
         <View style={styles.inputsContainer}>
-          <Input
-            text="Start date"
-            value={startDate}
-            onChange={setStartDate}
-            containerStyle={styles.input}
-          />
-          <Input
-            text="End date"
-            value={endDate}
-            onChange={setEndDate}
-            containerStyle={styles.input}
-          />
+          <Input text="Start date" value={startDate} onChange={setStartDate} containerStyle={styles.input} />
+          <Input text="End date" value={endDate} onChange={setEndDate} containerStyle={styles.input} />
         </View>
         <Button buttonText="Ok" style={styles.button} />
       </ScrollView>
-    </View>
-  );
+    </View>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -118,54 +99,19 @@ const styles = StyleSheet.create({
     marginBottom: 20
   }
 });
-
 export default SubscriptionTrial;
 
 const Input = props => {
-  return (
-    <View style={[inputStyles.inputContainer, props.containerStyle]}>
-      {props.text
-        ? (
-        <Text style={inputStyles.inputText}>{props.text}</Text>
-          )
-        : null}
+  return <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text ? <Text style={inputStyles.inputText}>{props.text}</Text> : null}
 
-      <TextInput
-        style={[
-          inputStyles.input,
-          props.style,
-          props.textArea ? inputStyles.textArea : null
-        ]}
-        placeholder={props.placeholder ? props.placeholder : "Enter"}
-        value={props.value}
-        onChangeText={() => props.onChange()}
-        placeholderTextColor={
-          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
-        }
-        editable={props.editable !== false}
-        autoCapitalize="none"
-        autoCorrect={false}
-        multiline={!!props.textArea}
-        backgroundColor={props.backgroundColor}
-        secureTextEntry={props.secureTextEntry}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-      {props.icon
-        ? (
-        <Pressable
-          onPress={() => props.iconOnPress()}
-          style={inputStyles.iconWithText}>
+      <TextInput style={[inputStyles.input, props.style, props.textArea ? inputStyles.textArea : null]} placeholder={props.placeholder ? props.placeholder : "Enter"} value={props.value} onChangeText={() => props.onChange()} placeholderTextColor={props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"} editable={props.editable !== false} autoCapitalize="none" autoCorrect={false} multiline={!!props.textArea} backgroundColor={props.backgroundColor} secureTextEntry={props.secureTextEntry} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+      {props.icon ? <Pressable onPress={() => props.iconOnPress()} style={inputStyles.iconWithText}>
           <Image source={props.icon} style={inputStyles.icon} />
-        </Pressable>
-          )
-        : null}
+        </Pressable> : null}
       <View style={styles.children}>{props.children}</View>
-    </View>
-  );
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({
@@ -221,20 +167,16 @@ const Button = params => {
   const btnText = {
     color: textColor
   };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
+  return <View style={[buttonStyles.btnContainer, params.style]}>
       <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}>
+        <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
           <Text style={[buttonStyles.btnText, btnText]}>
             {params.buttonText}
           </Text>
           <View style={styles.childrenContainer}>{params.children}</View>
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({
@@ -260,7 +202,6 @@ const buttonStyles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-
     flexDirection: "row"
   },
   btnText: {

@@ -2,12 +2,9 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 
 const GoogleCalendarScreen = () => {
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <Image style={styles.image} resizeMode="contain" source={require("./assets/calendar.png")} />
-    </View>
-
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({
@@ -21,5 +18,4 @@ const styles = StyleSheet.create({
     height: "50%"
   }
 });
-
 export default GoogleCalendarScreen;

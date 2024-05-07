@@ -2,8 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, ScrollView, Image } from "react-native";
 
 const EventsAdvancedScreen = () => {
-  return (
-    <ScrollView >
+  return <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
           <Image source={require("./assets/back.png")} style={styles.back} />
@@ -98,8 +97,7 @@ const EventsAdvancedScreen = () => {
         <Image source={require("./assets/star.png")} style={styles.star} />
         <Image source={require("./assets/contact.png")} style={styles.star} />
       </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -113,8 +111,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 22
   },
-  mainContainer: { width: "100%", marginVertical: 30 },
-  subHeading: { fontSize: 16, fontWeight: "bold", marginLeft: 22 },
+  mainContainer: {
+    width: "100%",
+    marginVertical: 30
+  },
+  subHeading: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 22
+  },
   tabView: {
     width: "100%",
     height: 48,
@@ -176,12 +181,35 @@ const styles = StyleSheet.create({
     width: 115,
     marginVertical: 5
   },
-  attendingContainer: { flexDirection: "row", justifyContent: "center", alignItems: "center" },
-  userImg: { height: 15, width: 15, resizeMode: "contain" },
-  date: { fontSize: 14, color: "#000" },
-  time: { fontSize: 14, color: "#dadada", marginVertical: 5 },
-  people: { fontSize: 12, color: "#000" },
-  attending: { color: "#000", fontSize: 12, marginLeft: 10, width: 115 },
+  attendingContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  userImg: {
+    height: 15,
+    width: 15,
+    resizeMode: "contain"
+  },
+  date: {
+    fontSize: 14,
+    color: "#000"
+  },
+  time: {
+    fontSize: 14,
+    color: "#dadada",
+    marginVertical: 5
+  },
+  people: {
+    fontSize: 12,
+    color: "#000"
+  },
+  attending: {
+    color: "#000",
+    fontSize: 12,
+    marginLeft: 10,
+    width: 115
+  },
   imgContainer: {
     height: 80,
     width: 80,
@@ -190,8 +218,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#dadada",
     borderRadius: 10
   },
-  image: { resizeMode: "contain" },
-  leftSection: { justifyContent: "flex-end", alignItems: "flex-end" },
+  image: {
+    resizeMode: "contain"
+  },
+  leftSection: {
+    justifyContent: "flex-end",
+    alignItems: "flex-end"
+  },
   checkboxContainer: {
     flexDirection: "row",
     marginBottom: 20
@@ -199,28 +232,132 @@ const styles = StyleSheet.create({
   checkbox: {
     alignSelf: "center"
   },
-  myEvents: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
-  boxContainer: { flexDirection: "row", justifyContent: "space-evenly", alignItems: "center", width: 250 },
-  checkBox: { height: 18, width: 18 },
-  myEventsHeading: { justifyContent: "center", alignItems: "center" },
-  myEventsText: { fontSize: 16, fontWeight: "bold", marginLeft: 30, marginBottom: 20 },
-  label: { marginRight: 5, fontSize: 14 },
-  box: { height: 170, width: 347, backgroundColor: "#fdf1d6", borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  imageBox: { height: 150, alignItems: "center", justifyContent: "center" },
-  vector: { height: 14, width: 14, alignSelf: "flex-end", marginRight: 10, marginTop: 10, resizeMode: "contain" },
-  editImg: { marginBottom: 15 },
-  centerBox: { justifyContent: "center", alignItems: "center" },
-  location: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginHorizontal: 45, marginVertical: 10 },
-  tags: { flexDirection: "row", justifyContent: "flex-start", alignItems: "center", marginHorizontal: 30, marginTop: 20, marginBottom: 50 },
-  tagText: { paddingVertical: 6, paddingHorizontal: 10, backgroundColor: "#F1F1F1", borderRadius: 12 },
-  m15: { marginHorizontal: 15 },
-  header: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginHorizontal: 30, marginTop: 10, marginBottom: 40 },
-  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -20 },
-  heading: { fontSize: 16, color: "#000", marginLeft: 20 },
-  star: { width: 20, height: 20, resizeMode: "contain" },
-  settings: { width: 20, height: 19.4, resizeMode: "contain" },
-  IconContainer: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: 55, marginRight: -20 },
-  bottom: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingVertical: 20, paddingHorizontal: 20, borderTopWidth: 1, borderTopColor: "#000", backgroundColor: "#fff" }
+  myEvents: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  boxContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: 250
+  },
+  checkBox: {
+    height: 18,
+    width: 18
+  },
+  myEventsHeading: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  myEventsText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginLeft: 30,
+    marginBottom: 20
+  },
+  label: {
+    marginRight: 5,
+    fontSize: 14
+  },
+  box: {
+    height: 170,
+    width: 347,
+    backgroundColor: "#fdf1d6",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  imageBox: {
+    height: 150,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  vector: {
+    height: 14,
+    width: 14,
+    alignSelf: "flex-end",
+    marginRight: 10,
+    marginTop: 10,
+    resizeMode: "contain"
+  },
+  editImg: {
+    marginBottom: 15
+  },
+  centerBox: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  location: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 45,
+    marginVertical: 10
+  },
+  tags: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginHorizontal: 30,
+    marginTop: 20,
+    marginBottom: 50
+  },
+  tagText: {
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    backgroundColor: "#F1F1F1",
+    borderRadius: 12
+  },
+  m15: {
+    marginHorizontal: 15
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 30,
+    marginTop: 10,
+    marginBottom: 40
+  },
+  back: {
+    width: 11.25,
+    height: 20,
+    resizeMode: "contain",
+    marginLeft: -20
+  },
+  heading: {
+    fontSize: 16,
+    color: "#000",
+    marginLeft: 20
+  },
+  star: {
+    width: 20,
+    height: 20,
+    resizeMode: "contain"
+  },
+  settings: {
+    width: 20,
+    height: 19.4,
+    resizeMode: "contain"
+  },
+  IconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: 55,
+    marginRight: -20
+  },
+  bottom: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#000",
+    backgroundColor: "#fff"
+  }
 });
-
 export default EventsAdvancedScreen;

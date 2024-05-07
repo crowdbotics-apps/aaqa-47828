@@ -1,39 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View, Image, TextInput } from "react-native";
 
-const OrderCompleteScreen = (params) => {
+const OrderCompleteScreen = params => {
   const [username, setUsername] = useState("");
   useEffect(() => {
     setUsername("User");
   }, []);
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.heading}>Hi {username},</Text>
         <Text style={styles.subHeading}>Your order has been completed.</Text>
       </View>
-      <Image
-        source={require("./assets/orderCompleted.png")}
-        style={styles.image}
-      />
+      <Image source={require("./assets/orderCompleted.png")} style={styles.image} />
       <View style={styles.inputContainer}>
         <Text style={styles.inputText}>Verification Message</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setUsername(text)}
-          value={""}
-          placeholder="Click to see"
-          placeholderTextColor="black"
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
-        <Image
-          source={require("./assets/dropdownIcon.png")}
-          style={styles.searchIcon}
-        />
+        <TextInput style={styles.input} onChangeText={text => setUsername(text)} value={""} placeholder="Click to see" placeholderTextColor="black" autoCapitalize="none" autoCorrect={false} />
+        <Image source={require("./assets/dropdownIcon.png")} style={styles.searchIcon} />
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({

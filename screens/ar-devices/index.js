@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Modal,
-  Pressable,
-  Image,
-  TextInput,
-  FlatList
-} from "react-native";
+import { Text, View, StyleSheet, Modal, Pressable, Image, TextInput, FlatList } from "react-native";
 
 const ARDevices = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -19,85 +10,38 @@ const ARDevices = () => {
   useEffect(() => {
     setDevices(["iPhone 14", "iPhone 13", "iPhone X", "iPhone 12"]);
   }, []);
-  return (
-    <View style={styles.container}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
+  return <View style={styles.container}>
+      <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => {
+      setModalVisible(!modalVisible);
+    }}>
         <View style={styles.modalContainer}>
           <View style={styles.modalView}>
-            <Input
-              text="Search"
-              placeholder="Search"
-              value={search}
-              onChange={setSearch}
-              icon={require("./assets/searchIcon.png")}
-              backgroundColor="#f6f6f6"
-            />
+            <Input text="Search" placeholder="Search" value={search} onChange={setSearch} icon={require("./assets/searchIcon.png")} backgroundColor="#f6f6f6" />
             <Text style={styles.heading}>Categories</Text>
-            <TabView
-              tabTitles={["All", "Mobile", "Laptops"]}
-              selected={selectedTab}
-              onPress={setSelectedTab}
-            />
+            <TabView tabTitles={["All", "Mobile", "Laptops"]} selected={selectedTab} onPress={setSelectedTab} />
             <View style={styles.flexRow}>
               <Text style={styles.heading}>Popolar products</Text>
               <Pressable>
                 <Text style={styles.subText}>See all</Text>
               </Pressable>
             </View>
-            <FlatList
-              showsHorizontalScrollIndicator={false}
-              data={devices}
-              renderItem={({ item }) => (
-                <Pressable
-                  style={[
-                    styles.deviceContainer,
-                    item === selectedDevice && styles.selectedDevice
-                  ]}
-                  onPress={() => setSelectedDevice(item)}>
-                  <Image
-                    source={require("./assets/phoneIcon.png")}
-                    style={styles.deviceIcon}
-                  />
+            <FlatList showsHorizontalScrollIndicator={false} data={devices} renderItem={({
+            item
+          }) => <Pressable style={[styles.deviceContainer, item === selectedDevice && styles.selectedDevice]} onPress={() => setSelectedDevice(item)}>
+                  <Image source={require("./assets/phoneIcon.png")} style={styles.deviceIcon} />
                   <Text style={styles.deviceName}>{item}</Text>
-                </Pressable>
-              )}
-              keyExtractor={item => item}
-              horizontal={true}
-            />
+                </Pressable>} keyExtractor={item => item} horizontal={true} />
             <View style={styles.flexRow}>
-              <Button
-                buttonText="Save"
-                style={styles.modalButton}
-                hideShadow
-                onPress={() => setModalVisible(!modalVisible)}
-              />
-              <Button
-                buttonText="Discard"
-                style={styles.modalButton}
-                backgroundColor="#fff"
-                borderColor="#000"
-                textColor="#000"
-                hideShadow={true}
-                onPress={() => setModalVisible(!modalVisible)}
-              />
+              <Button buttonText="Save" style={styles.modalButton} hideShadow onPress={() => setModalVisible(!modalVisible)} />
+              <Button buttonText="Discard" style={styles.modalButton} backgroundColor="#fff" borderColor="#000" textColor="#000" hideShadow={true} onPress={() => setModalVisible(!modalVisible)} />
             </View>
           </View>
         </View>
       </Modal>
-      <Button
-        buttonText="Open Modal"
-        style={styles.button}
-        onPress={() => setModalVisible(true)}
-      />
-    </View>
-  );
+      <Button buttonText="Open Modal" style={styles.button} onPress={() => setModalVisible(true)} />
+    </View>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -179,8 +123,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   }
 });
-
 export default ARDevices;
+
 const Button = params => {
   const backgroundColor = params.backgroundColor || "#000";
   const textColor = params.textColor || "#fff";
@@ -192,20 +136,16 @@ const Button = params => {
   const btnText = {
     color: textColor
   };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
+  return <View style={[buttonStyles.btnContainer, params.style]}>
       <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}>
+        <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
           <Text style={[buttonStyles.btnText, btnText]}>
             {params.buttonText}
           </Text>
           <View style={styles.childrenContainer}>{params.children}</View>
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({
@@ -231,7 +171,6 @@ const buttonStyles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-
     flexDirection: "row"
   },
   btnText: {
@@ -246,51 +185,14 @@ const buttonStyles = StyleSheet.create({
 });
 
 const Input = props => {
-  return (
-    <View style={[inputStyles.inputContainer, props.containerStyle]}>
-      {props.text
-        ? (
-        <Text style={inputStyles.inputText}>{props.text}</Text>
-          )
-        : null}
+  return <View style={[inputStyles.inputContainer, props.containerStyle]}>
+      {props.text ? <Text style={inputStyles.inputText}>{props.text}</Text> : null}
 
-      <TextInput
-        style={[
-          inputStyles.input,
-          props.style,
-          props.textArea ? inputStyles.textArea : null
-        ]}
-        placeholder={props.placeholder ? props.placeholder : "Enter"}
-        value={props.value}
-        onChangeText={() => props.onChange()}
-        placeholderTextColor={
-          props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"
-        }
-        editable={props.editable !== false}
-        autoCapitalize="none"
-        autoCorrect={false}
-        multiline={!!props.textArea}
-        backgroundColor={props.backgroundColor}
-        secureTextEntry={props.secureTextEntry}
-      />
-      {props.errorText
-        ? (
-        <Text style={inputStyles.error}>{props.errorText}</Text>
-          )
-        : null}
-      {props.icon
-        ? (
-        <Image
-          source={props.icon}
-          style={
-            props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText
-          }
-        />
-          )
-        : null}
+      <TextInput style={[inputStyles.input, props.style, props.textArea ? inputStyles.textArea : null]} placeholder={props.placeholder ? props.placeholder : "Enter"} value={props.value} onChangeText={() => props.onChange()} placeholderTextColor={props.placeholderTextColor ? props.placeholderTextColor : "#9B9B9B"} editable={props.editable !== false} autoCapitalize="none" autoCorrect={false} multiline={!!props.textArea} backgroundColor={props.backgroundColor} secureTextEntry={props.secureTextEntry} />
+      {props.errorText ? <Text style={inputStyles.error}>{props.errorText}</Text> : null}
+      {props.icon ? <Image source={props.icon} style={props.text ? inputStyles.iconWithText : inputStyles.iconWithoutText} /> : null}
       <View style={styles.children}>{props.children}</View>
-    </View>
-  );
+    </View>;
 };
 
 const inputStyles = StyleSheet.create({
@@ -352,40 +254,12 @@ const TabView = ({
     backgroundColor: backgroundColor || "#F1F1F1"
   };
   const propStyle = style || {};
-  return (
-    <View
-      style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
-      {tabTitles.map((title, index) => (
-        <Pressable
-          onPress={() => (onPress ? onPress(index) : null)}
-          style={
-            index === selected
-              ? [tabViewStyles.selected, tabColorStyle, tabViewStyles.tabItem]
-              : [
-                  tabViewStyles.unSelected,
-                  backgroundColorStyle,
-                  tabViewStyles.tabItem
-                ]
-          }
-          key={index}>
-          {icons
-            ? (
-            <Image
-              source={icons[index]}
-              style={[
-                tabViewStyles.icon,
-                index === selected
-                  ? tabViewStyles.selectedIcon
-                  : tabViewStyles.unSelectedIcon
-              ]}
-            />
-              )
-            : null}
+  return <View style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
+      {tabTitles.map((title, index) => <Pressable onPress={() => onPress ? onPress(index) : null} style={index === selected ? [tabViewStyles.selected, tabColorStyle, tabViewStyles.tabItem] : [tabViewStyles.unSelected, backgroundColorStyle, tabViewStyles.tabItem]} key={index}>
+          {icons ? <Image source={icons[index]} style={[tabViewStyles.icon, index === selected ? tabViewStyles.selectedIcon : tabViewStyles.unSelectedIcon]} /> : null}
           <Text>{title}</Text>
-        </Pressable>
-      ))}
-    </View>
-  );
+        </Pressable>)}
+    </View>;
 };
 
 const tabViewStyles = StyleSheet.create({

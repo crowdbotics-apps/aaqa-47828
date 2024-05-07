@@ -6,8 +6,7 @@ const pressed = () => {
 };
 
 const Token = () => {
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.topHead}>
         <Text style={styles.mainHeading}>Token</Text>
       </View>
@@ -36,9 +35,9 @@ const Token = () => {
     <View style={styles.submitBtn}>
         <Button onPress={pressed} style={styles.submitButton}>Submit</Button>
     </View>
-    </View>
-  );
+    </View>;
 };
+
 const styles = StyleSheet.create({
   topHead: {
     display: "flex",
@@ -98,22 +97,21 @@ const styles = StyleSheet.create({
     paddingRight: 20
   }
 });
-
 export default Token;
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor='#DDDDDD'>
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor='#DDDDDD'>
       <View style={[btnStyles.button, {
-        backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
-        height: props.height ? props.height : 49,
-        borderWidth: props.borderWidth ? props.borderWidth : 0,
-        borderColor: props.borderColor ? props.borderColor : "#000000"
-      }]}>
-        <Text style={[btnStyles.text, { color: props.color ? props.color : "#ffffff" }]}>{props.children}</Text>
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>{props.children}</Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({

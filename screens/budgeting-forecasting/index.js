@@ -2,8 +2,7 @@ import React from "react";
 import { Image, Text, StyleSheet, View, ScrollView } from "react-native";
 
 const BudgetingForecastingScreen = () => {
-  return (
-    <ScrollView>
+  return <ScrollView>
     <View>
       <View style={styles.container}>
         <View>
@@ -25,8 +24,7 @@ const BudgetingForecastingScreen = () => {
         <Image resizeMode="contain" style={styles.imageHW} source={require("./assets/total-spending.png")} />
       </View>
     </View>
-    </ScrollView>
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -63,5 +61,4 @@ const styles = StyleSheet.create({
     height: "100%"
   }
 });
-
 export default BudgetingForecastingScreen;

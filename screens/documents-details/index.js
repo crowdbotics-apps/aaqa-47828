@@ -1,23 +1,20 @@
 import React from "react";
 import { Text, StyleSheet, View, TouchableHighlight, Image, ScrollView } from "react-native";
 
-const DocumentsDetails = (params) => {
-  return (
-    <ScrollView style={styles.container}>
+const DocumentsDetails = params => {
+  return <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Image source={require(
-
-          "./assets/back.png")} style={styles.back} />
+        <Image source={require("./assets/back.png")} style={styles.back} />
         <Text style={styles.heading}>Details</Text>
         <Text />
       </View>
       <Text style={styles.mr10}>Document ID</Text>
         <View style={styles.InputBox}>
-          <Text >#21292923</Text>
+          <Text>#21292923</Text>
         </View>
         <Text style={styles.mr10}>Document Title</Text>
         <View style={styles.InputBox}>
-          <Text >Title of the document</Text>
+          <Text>Title of the document</Text>
         </View>
         <View style={styles.descriptionContainer}>
         <Text style={styles.descriptionText}>Content</Text>
@@ -33,16 +30,12 @@ const DocumentsDetails = (params) => {
       <Text style={styles.mr10}>Download</Text>
       <View style={styles.chooseContainer}>
         <Text>Download file</Text>
-        <Image source={require(
-
-          "./assets/upload.png")} style={styles.filterImg} />
+        <Image source={require("./assets/upload.png")} style={styles.filterImg} />
       </View>
         <View style={styles.buttonBottom}>
           <Button>Sign</Button>
       </View>
-    </ScrollView>
-
-  );
+    </ScrollView>;
 };
 
 const styles = StyleSheet.create({
@@ -60,22 +53,51 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 30
   },
-  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -15 },
-  heading: { fontSize: 16, color: "#000" },
+  back: {
+    width: 11.25,
+    height: 20,
+    resizeMode: "contain",
+    marginLeft: -15
+  },
+  heading: {
+    fontSize: 16,
+    color: "#000"
+  },
   mr10: {
     marginLeft: 25,
     marginBottom: 10
   },
-  InputBox: { paddingHorizontal: 10, borderColor: "#C4C4C4", borderWidth: 1, marginHorizontal: 10, borderRadius: 10, marginBottom: 10, paddingVertical: 15 },
+  InputBox: {
+    paddingHorizontal: 10,
+    borderColor: "#C4C4C4",
+    borderWidth: 1,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    marginBottom: 10,
+    paddingVertical: 15
+  },
   buttonBottom: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
     marginBottom: 10
   },
-  descriptionContainer: { paddingHorizontal: 10, marginBottom: 15, marginTop: 5 },
-  descriptionText: { fontSize: 16, fontWeight: "400", marginLeft: 10, marginVertical: 5 },
-  description: { fontSize: 12, marginVertical: 5, fontWeight: "500" },
+  descriptionContainer: {
+    paddingHorizontal: 10,
+    marginBottom: 15,
+    marginTop: 5
+  },
+  descriptionText: {
+    fontSize: 16,
+    fontWeight: "400",
+    marginLeft: 10,
+    marginVertical: 5
+  },
+  description: {
+    fontSize: 12,
+    marginVertical: 5,
+    fontWeight: "500"
+  },
   chooseContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -96,26 +118,21 @@ const styles = StyleSheet.create({
   }
 });
 
-const Button = (props) => {
-  return (
-    <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
-      <View
-        style={[
-          btnStyles.button,
-          {
-            backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
-            height: props.height ? props.height : 49,
-            borderWidth: props.borderWidth ? props.borderWidth : 0,
-            borderColor: props.borderColor ? props.borderColor : "#000000"
-          }
-        ]}
-      >
-        <Text style={[btnStyles.text, { color: props.color ? props.color : "#ffffff" }]}>
+const Button = props => {
+  return <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
+      <View style={[btnStyles.button, {
+      backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
+      height: props.height ? props.height : 49,
+      borderWidth: props.borderWidth ? props.borderWidth : 0,
+      borderColor: props.borderColor ? props.borderColor : "#000000"
+    }]}>
+        <Text style={[btnStyles.text, {
+        color: props.color ? props.color : "#ffffff"
+      }]}>
           {props.children}
         </Text>
       </View>
-    </TouchableHighlight>
-  );
+    </TouchableHighlight>;
 };
 
 const btnStyles = StyleSheet.create({

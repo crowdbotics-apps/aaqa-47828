@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet, Image, ScrollView, Pressable
-} from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, Pressable } from "react-native";
 
 const SubscriptionDetails = () => {
-  return (
-    <ScrollView style={styles.container}>
+  return <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Image source={require("./assets/back.png")} style={styles.back} />
         <Text style={styles.heading}>Subscription</Text>
@@ -36,9 +31,9 @@ const SubscriptionDetails = () => {
         <Button buttonText={"Upgrade to Premium"} />
       </View>
 
-    </ScrollView>
-  );
+    </ScrollView>;
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -51,20 +46,68 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 30
   },
-  back: { width: 11.25, height: 20, resizeMode: "contain", marginLeft: -15 },
-  heading: { fontSize: 16, color: "#000" },
-  reviewContainer: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", paddingHorizontal: 20, paddingVertical: 20, marginVertical: 15 },
-  review: { fontSize: 16, color: "#231F20" },
-  edit: { color: "#12D790", fontSize: 16 },
-  listContainer: { flex: 1, backgroundColor: "#FFF", marginTop: 30, paddingHorizontal: 10, paddingBottom: 25 },
-  title: { fontSize: 24, marginLeft: 20, marginTop: 15, marginBottom: 20, fontWeight: "bold" },
-  descContainer: { paddingHorizontal: 20 },
-  desc: { color: "#757575", marginBottom: 5 },
-  priceContainer: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, marginVertical: 20 },
-  price: { fontSize: 24, fontWeight: "bold" }
+  back: {
+    width: 11.25,
+    height: 20,
+    resizeMode: "contain",
+    marginLeft: -15
+  },
+  heading: {
+    fontSize: 16,
+    color: "#000"
+  },
+  reviewContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    marginVertical: 15
+  },
+  review: {
+    fontSize: 16,
+    color: "#231F20"
+  },
+  edit: {
+    color: "#12D790",
+    fontSize: 16
+  },
+  listContainer: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    marginTop: 30,
+    paddingHorizontal: 10,
+    paddingBottom: 25
+  },
+  title: {
+    fontSize: 24,
+    marginLeft: 20,
+    marginTop: 15,
+    marginBottom: 20,
+    fontWeight: "bold"
+  },
+  descContainer: {
+    paddingHorizontal: 20
+  },
+  desc: {
+    color: "#757575",
+    marginBottom: 5
+  },
+  priceContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    marginVertical: 20
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: "bold"
+  }
 });
 
-const Button = (params) => {
+const Button = params => {
   const btnStyle = {
     backgroundColor: params.outline ? "#fff" : "#12D790",
     borderColor: params.outline ? "#000" : "#fff",
@@ -73,14 +116,12 @@ const Button = (params) => {
   const btnText = {
     color: params.outline ? "#000" : "#fff"
   };
-  return (
-    <View style={buttonStyles.btnContainer}>
+  return <View style={buttonStyles.btnContainer}>
       <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
         <Text style={[buttonStyles.btnText, btnText]}>{params.buttonText}</Text>
         <View style={styles.childrenContainer}>{params.children}</View>
       </Pressable>
-    </View>
-  );
+    </View>;
 };
 
 const buttonStyles = StyleSheet.create({

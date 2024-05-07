@@ -1,61 +1,45 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Pressable,
-  TextInput,
-  Image,
-  ScrollView
-} from "react-native";
+import { Text, View, StyleSheet, Pressable, TextInput, Image, ScrollView } from "react-native";
 
 const Feedback = () => {
   const [message, setMessage] = useState("");
   const [reviews, setReviews] = useState([]);
   const [expanded, setExpanded] = useState(null);
   useEffect(() => {
-    setReviews([
-      {
-        id: 1,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 2,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 3,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      },
-      {
-        id: 4,
-        username: "Username",
-        email: "username@email.com",
-        image: require("./assets/userImage.png"),
-        subject: "Molestie vestibulum nulla.",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
-      }
-    ]);
+    setReviews([{
+      id: 1,
+      username: "Username",
+      email: "username@email.com",
+      image: require("./assets/userImage.png"),
+      subject: "Molestie vestibulum nulla.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
+    }, {
+      id: 2,
+      username: "Username",
+      email: "username@email.com",
+      image: require("./assets/userImage.png"),
+      subject: "Molestie vestibulum nulla.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
+    }, {
+      id: 3,
+      username: "Username",
+      email: "username@email.com",
+      image: require("./assets/userImage.png"),
+      subject: "Molestie vestibulum nulla.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
+    }, {
+      id: 4,
+      username: "Username",
+      email: "username@email.com",
+      image: require("./assets/userImage.png"),
+      subject: "Molestie vestibulum nulla.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, commodo lacus, amet nulla faucibus vulputate erat vestibulum. Aliquet consequat nunc sit ullamcorper vel egestas nunc sagittis lectus. Sed ipsum vel in morbi non semper adipiscing nibh nam. Integer sem."
+    }]);
   }, []);
   useEffect(() => {
     setExpanded(reviews[3]);
   }, [reviews]);
+
   const handleExpand = item => {
     if (expanded === item) {
       setExpanded(null);
@@ -63,82 +47,48 @@ const Feedback = () => {
       setExpanded(item);
     }
   };
-  return (
-    <View style={styles.container}>
+
+  return <View style={styles.container}>
       <ScrollView>
-        <TabView
-          tabTitles={["All Users"]}
-          selected={0}
-          style={styles.tabView}
-        />
+        <TabView tabTitles={["All Users"]} selected={0} style={styles.tabView} />
         <Text style={styles.title}>Feedback</Text>
         <View style={styles.feedbackContainer}>
-          {reviews.map((review, index) => (
-            <Review
-              key={index}
-              item={review}
-              expanded={review === expanded}
-              onPress={x => {
-                handleExpand(x);
-              }}
-            />
-          ))}
+          {reviews.map((review, index) => <Review key={index} item={review} expanded={review === expanded} onPress={x => {
+          handleExpand(x);
+        }} />)}
         </View>
       </ScrollView>
       <View style={styles.footer}>
         <View style={styles.camera}>
-          <Image
-            source={require("./assets/cameraIcon.png")}
-            style={styles.cameraIcon}
-          />
+          <Image source={require("./assets/cameraIcon.png")} style={styles.cameraIcon} />
         </View>
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Type a message"
-            onChangeText={text => setMessage(text)}
-            value={message}
-            autoCorrect={false}
-            autoCapitalize="none"
-            autoFocus={false}
-          />
-          <Image
-            source={require("./assets/emojiIcon.png")}
-            style={styles.smileyIcon}
-          />
-          <Image
-            source={require("./assets/voiceIcon.png")}
-            style={styles.voiceIcon}
-          />
+          <TextInput style={styles.input} placeholder="Type a message" onChangeText={text => setMessage(text)} value={message} autoCorrect={false} autoCapitalize="none" autoFocus={false} />
+          <Image source={require("./assets/emojiIcon.png")} style={styles.smileyIcon} />
+          <Image source={require("./assets/voiceIcon.png")} style={styles.voiceIcon} />
         </View>
         <View style={styles.send}>
-          <Image
-            source={require("./assets/sendIcon.png")}
-            style={styles.sendIcon}
-          />
+          <Image source={require("./assets/sendIcon.png")} style={styles.sendIcon} />
         </View>
       </View>
-    </View>
-  );
+    </View>;
 };
 
-const Review = ({ item, expanded, onPress }) => {
-  return (
-    <Pressable style={reviewStyles.container} onPress={() => onPress(item)}>
+const Review = ({
+  item,
+  expanded,
+  onPress
+}) => {
+  return <Pressable style={reviewStyles.container} onPress={() => onPress(item)}>
       <View style={reviewStyles.header}>
         <Image source={item.image} style={reviewStyles.image} />
         <View style={reviewStyles.info}>
           <Text style={reviewStyles.username}>{item.username}</Text>
           <Text style={reviewStyles.email}>{item.email}</Text>
         </View>
-        <Image
-          source={require("./assets/menuIcon.png")}
-          style={reviewStyles.menuIcon}
-        />
+        <Image source={require("./assets/menuIcon.png")} style={reviewStyles.menuIcon} />
       </View>
-      {expanded
-        ? (
-        <View style={reviewStyles.body}>
+      {expanded ? <View style={reviewStyles.body}>
           <Text style={reviewStyles.detailsText}>
             <Text style={reviewStyles.green}>Email: {"\t"}</Text>
             {"\t"}
@@ -153,11 +103,8 @@ const Review = ({ item, expanded, onPress }) => {
           <Pressable style={reviewStyles.btn}>
             <Text style={reviewStyles.btnText}>Reply</Text>
           </Pressable>
-        </View>
-          )
-        : null}
-    </Pressable>
-  );
+        </View> : null}
+    </Pressable>;
 };
 
 const reviewStyles = StyleSheet.create({
@@ -229,7 +176,6 @@ const reviewStyles = StyleSheet.create({
     fontSize: 12
   }
 });
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -274,7 +220,6 @@ const styles = StyleSheet.create({
     opacity: 0.5
   }
 });
-
 export default Feedback;
 
 const TabView = ({
@@ -292,23 +237,11 @@ const TabView = ({
     backgroundColor: backgroundColor || "#F1F1F1"
   };
   const propStyle = style || {};
-  return (
-    <View
-      style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
-      {tabTitles.map((title, index) => (
-        <Pressable
-          onPress={() => (onPress ? onPress(index) : null)}
-          style={
-            index === selected
-              ? [tabViewStyles.selected, tabColorStyle]
-              : [tabViewStyles.unSelected, backgroundColorStyle]
-          }
-          key={index}>
+  return <View style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
+      {tabTitles.map((title, index) => <Pressable onPress={() => onPress ? onPress(index) : null} style={index === selected ? [tabViewStyles.selected, tabColorStyle] : [tabViewStyles.unSelected, backgroundColorStyle]} key={index}>
           <Text>{title}</Text>
-        </Pressable>
-      ))}
-    </View>
-  );
+        </Pressable>)}
+    </View>;
 };
 
 const tabViewStyles = StyleSheet.create({

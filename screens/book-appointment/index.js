@@ -1,12 +1,10 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const BookAppointmentScreen = (params) => {
-  return (
-    <View style={styles.container}>
+const BookAppointmentScreen = params => {
+  return <View style={styles.container}>
       <Text style={styles.headingTxt}>Book Appointment Screen</Text>
-    </View>
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({
@@ -22,5 +20,4 @@ const styles = StyleSheet.create({
     marginVertical: 12
   }
 });
-
 export default BookAppointmentScreen;

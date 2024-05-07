@@ -1,37 +1,18 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  Image,
-  Pressable
-} from "react-native";
+import { Text, StyleSheet, View, TextInput, Image, Pressable } from "react-native";
 
-const RecordMemoScreen = (params) => {
+const RecordMemoScreen = params => {
   const [recordingName, setRecordingName] = useState("");
   const [recordingTime, setRecordingTime] = useState("");
   useEffect(() => {
     setRecordingTime("00:00:00");
   }, []);
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Text style={styles.inputText}>Add name</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setRecordingName(text)}
-          value={recordingName}
-          placeholder="Enter"
-          placeholderTextColor="#9B9B9B"
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
+        <TextInput style={styles.input} onChangeText={text => setRecordingName(text)} value={recordingName} placeholder="Enter" placeholderTextColor="#9B9B9B" autoCapitalize="none" autoCorrect={false} />
       </View>
-      <Image
-        source={require("./assets/recording.png")}
-        style={styles.recordingImage}
-      />
+      <Image source={require("./assets/recording.png")} style={styles.recordingImage} />
       <Text style={styles.recordingTimeText}>{recordingTime}</Text>
       <View style={styles.buttonsContainer}>
         <Pressable style={styles.smallBtn}>
@@ -44,8 +25,7 @@ const RecordMemoScreen = (params) => {
           <Image source={require("./assets/tickIcon.png")} />
         </Pressable>
       </View>
-    </View>
-  );
+    </View>;
 };
 
 const styles = StyleSheet.create({
