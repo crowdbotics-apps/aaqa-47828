@@ -1,3 +1,14 @@
+from rest_framework import viewsets
+from home.models import W1333, F33, F33, W1333, F33, W1333
+from .serializers import (
+    W1333Serializer,
+    F33Serializer,
+    F33Serializer,
+    W1333Serializer,
+    F33Serializer,
+    W1333Serializer,
+)
+from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.authtoken.models import Token
@@ -28,3 +39,21 @@ class LoginViewSet(ViewSet):
         token, created = Token.objects.get_or_create(user=user)
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
+
+
+class W1333ViewSet(viewsets.ModelViewSet):
+    serializer_class = W1333Serializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = W1333.objects.all()
+
+
+class F33ViewSet(viewsets.ModelViewSet):
+    serializer_class = F33Serializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = F33.objects.all()
